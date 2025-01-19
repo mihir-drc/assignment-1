@@ -112,7 +112,6 @@ const Register = () => {
                   </MenuItem>
                   <MenuItem value="user">User</MenuItem>
                   <MenuItem value="manager">Manager</MenuItem>
-                  <MenuItem value="admin">Admin</MenuItem>
                 </Select>
               </FormControl>
             </Box>

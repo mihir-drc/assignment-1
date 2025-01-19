@@ -2,7 +2,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import { Dashboard as UserDashboard } from "./Pages/User/Dashboard";
-import Home from "./Pages/User/Home";
+import { Dashboard as AdminDashboard } from "./Pages/Admin/Dashboard";
+import { Tasks as UserTasks } from "./Pages/User/Tasks";
+import { Projects as UserProjects } from "./Pages/User/Projects";
+import Home from "./Components/Home";
+
 const routes = new createBrowserRouter([
   {
     path: "/",
@@ -12,6 +16,17 @@ const routes = new createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+
+  {
+    path: "/admin",
+    element: <Home></Home>,
+    children: [
+      {
+        path: "",
+        element: <AdminDashboard></AdminDashboard>,
+      },
+    ],
+  },
   {
     path: "/user",
     element: <Home></Home>,
@@ -19,6 +34,14 @@ const routes = new createBrowserRouter([
       {
         path: "",
         element: <UserDashboard></UserDashboard>,
+      },
+      {
+        path: "tasks",
+        element: <UserTasks></UserTasks>,
+      },
+      {
+        path: "projects",
+        element: <UserProjects></UserProjects>,
       },
     ],
   },

@@ -9,12 +9,13 @@ import {
   Select,
 } from "@mui/material";
 import { useFormik } from "formik";
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
-      password: "",
+      password: "123",
       role: "",
     },
     // validationSchema: validationSchema,
@@ -30,7 +31,18 @@ const Login = () => {
         body,
       });
       const response = await request.json();
-      console.log(response);
+      console.log(response.success);
+      if (response.success) {
+        console.log("hi");
+
+        localStorage.setItem("token", response.token);
+        localStorage.setItem("role", values.role);
+        localStorage.setItem("name", response.name);
+        localStorage.setItem("email", values.email);
+        navigate("/" + values.role);
+      } else {
+        return null;
+      }
     },
   });
   return (
