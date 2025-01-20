@@ -82,8 +82,8 @@ const Home = () => {
     <div className="flex">
       <div
         className={`${
-          sideBarOpen ? "w-[20%]" : "w-[4%]"
-        } h-screen text-white bg-darkblue shadow-2xl transition-all duration-300`}
+          sideBarOpen ? "w-[25%]" : "w-[4%]"
+        } min-h-screen text-white  bg-darkblue shadow-2xl transition-all duration-300`}
       >
         <div className="flex justify-between items-center my-5 ps-2  ">
           {sideBarOpen ? (
@@ -107,7 +107,7 @@ const Home = () => {
             ""
           )}
           <div
-            className="hover:cursor-pointer mx-2"
+            className={`hover:cursor-pointer  ${sideBarOpen ? "mx-2" : ""}`}
             onClick={() => {
               setsideBarOpen((prev) => {
                 return !prev;
@@ -134,7 +134,7 @@ const Home = () => {
           })}
         </div>
       </div>
-      <div className="px-10 py-2 bg-slate-100 w-full">
+      <div className="px-10 py-2 pt-10 bg-slate-100 w-full">
         <Outlet></Outlet>
       </div>
     </div>

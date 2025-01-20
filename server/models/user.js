@@ -8,6 +8,6 @@ const userSchema = new mongoose.Schema({
     enum: ["user", "manager", "admin"],
     default: "USER",
   },
-  isActive: Number, // 0- Pending ,1 - Approved , 2- Rejected
+  isActive: Number, // 0- Deleted ,1 - Approved , 2- Pending , 3- Rejected
 });
 export const userModel = mongoose.model("users", userSchema);

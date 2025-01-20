@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const adminRoutes = require("./routes/admin-routes");
 const { userModel } = require("./models/user");
 const jwt = require("jsonwebtoken");
 
@@ -20,7 +21,7 @@ app.post("/register", async (req, res) => {
   if (role == "user") {
     user.isActive = 1;
   } else if (role == "manager") {
-    user.isActive = 0;
+    user.isActive = 2;
   }
   await user.save();
   console.log("User Created");
@@ -46,6 +47,7 @@ app.post("/login", async (req, res) => {
     res.status(400).json({ success: false });
   }
 });
+app.use("/admin", adminRoutes);
 app.listen(3001, () => {
   console.log("server");
 });

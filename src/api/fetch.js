@@ -2,9 +2,7 @@
 
 export async function fetchGet(pathName, token = null, method = "GET") {
   const apiURL = "http://localhost:3001/";
-  if (!navigator.onLine) {
-    return { success: false, internet: true, message: "Connection Issue" };
-  }
+
   try {
     const request = await fetch(apiURL + pathName, {
       method,
@@ -31,9 +29,7 @@ export async function fetchPost(
   contentType = "application/json"
 ) {
   const apiURL = "http://localhost:3001/";
-  if (!navigator.onLine) {
-    return { success: false, internet: true, message: "Connection Issue" };
-  }
+
   try {
     const request = await fetch(apiURL + pathName, {
       headers: {
@@ -43,12 +39,12 @@ export async function fetchPost(
       method,
       body,
     });
-    if (request.status == 405) {
-      localStorage.removeItem("role");
-      localStorage.removeItem("token");
-      window.open("/", "_self");
-      return { success: false, message: "Session Expired!!" };
-    }
+    // if (request.status == 405) {
+    //   localStorage.removeItem("role");
+    //   localStorage.removeItem("token");
+    //   window.open("/", "_self");
+    //   return { success: false, message: "Session Expired!!" };
+    // }
     const response = await request.json();
     return response;
   } catch (error) {

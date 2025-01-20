@@ -3,7 +3,7 @@ import TaskCard from "../../Components/User/Dashboard/TaskCard";
 import ProjectCard from "../../Components/User/Dashboard/ProjectCard";
 import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import { Badge, IconButton } from "@mui/material";
-import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 export const Dashboard = () => {
   const [taskArray, settaskArray] = useState([
     {
@@ -90,8 +90,8 @@ export const Dashboard = () => {
         <div className="mt-5 w-[50%] p-5 border border-gray-300">
           <div className="flex items-center gap-x-2">
             <span className="text-2xl font-bold">Notifications</span>
-            <Badge badgeContent={1} color="error" overlap="circular">
-              <NotificationsNoneIcon fontSize="medium" />
+            <Badge badgeContent={1} color="error">
+              <NotificationsIcon fontSize="medium" />
             </Badge>
           </div>
           <div></div>

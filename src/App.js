@@ -6,6 +6,7 @@ import { Dashboard as AdminDashboard } from "./Pages/Admin/Dashboard";
 import { Tasks as UserTasks } from "./Pages/User/Tasks";
 import { Projects as UserProjects } from "./Pages/User/Projects";
 import Home from "./Components/Home";
+import UserList from "./Pages/Admin/UserList";
 
 const routes = new createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const routes = new createBrowserRouter([
       {
         path: "",
         element: <AdminDashboard></AdminDashboard>,
+      },
+      {
+        path: "users",
+        element: <UserList></UserList>,
       },
     ],
   },
